@@ -42,7 +42,7 @@
 		<tar destfile="${basedir}/selenium-server-win.tar.gz" basedir="${dist}/selenium-server-win" compression="gzip"/>
 	</target>
 	
-	<target name="jar">
+	<target name="jar" depends="compile.info">
 		<jar destfile="${dist}/lib/selenium-example-tests.jar" basedir="${bin}" includes="com/**" excludes="info/**" />
 		<jar destfile="${dist}/lib/check-selenium.jar" basedir="${bin}" includes="info/**" excludes="com/**" >
 			<manifest>
@@ -50,5 +50,20 @@
 			</manifest>
 		</jar>
 	</target>
-	
+
+        <path id="compile.classpath">
+                <fileset dir="${lib}/">
+                        <include name="*.jar"/>
+                </fileset>
+        </path>
+
+        <target name="compile.info" description="compile the source">
+                <javac srcdir="${src}/info/devopsabyss" destdir="${bin}">
+                        <classpath refid="compile.classpath" />
+                </javac>
+                <javac srcdir="${src}/com/example/tests" destdir="${bin}">
+                        <classpath refid="compile.classpath" />
+                </javac>
+        </target>
+
 </project>
