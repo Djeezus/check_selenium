@@ -1,4 +1,5 @@
-set JAVA_HOME=c:\java\java5
-set CLASSPATH=lib\selenium-java-2.20.0.jar;lib\junit-4.8.1.jar;lib\commons-cli-1.2.jar;lib\check-selenium.jar;com\example\tests\.;lib\selenium-example-tests.jar
+set JAVA="C:\Program Files\Java\jdk1.7.0_09\bin\java"
+set CLASSPATH=junit\junit-4.10.jar;lib\selenium-java-client-driver.jar;lib\check-selenium.jar;lib\commons-cli-1.2.jar;com\eso\scenarios\.;lib\selenium-java-2.28.0.jar;server\selenium-server-standalone-2.28.0.jar;.\.
 
-%JAVA_HOME%/bin/java -cp %CLASSPATH% info.devopsabyss.CallSeleniumTest %*
+%JAVA% -classpath "%CLASSPATH%" info.devopsabyss.CallSeleniumTest %*
+
