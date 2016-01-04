@@ -1,15 +1,27 @@
-This is a Nagios check for Selenium test cases.
-With this check it is possible to put your recorded test cases from your Selenium IDE into Nagios to use them for monitoring.
+This is a fork of the original "Nagios check for Selenium test cases", still available from :
+        https://github.com/czunker/check_selenium
 
-In my opinion this has the following advantages:
+You can read the orignal & full premise of the original setup below my 2cents here :)
 
-    * You can transfer your test cases to monitoring without making any changes.
-    * You can run the test cases with multiple browsers. 
-      This means, you use the JavaScript and rendering engine of the browser not any other HTML/HTTP library.
-    * You are more flexible, when monitoring more complex scenarios.
+wall<<MY2CENTS
+--------------
+- fixed the build.xml for ant-building ... How to build ?
+
+1. ant build
+2. done :)
+
+- What was added to the original setup
+        * use remoteWebDriver implementation (seleniumhq.org) : real-live scenario checking on non-Linux platforms
+        * runtime arg : browser, timeout, gridhub, screenshot+path, timeout, detail-info (todo : feed rrd directly)
+        * compile_scenario.sh(bat) -> maybe deprecated by eclipse builds ?
+
+- gert@godsells.org -
+
+MY2CENTS
+
+
 
 To get this working, you need the following components:
-(the jars needed for the check to run are already included in the source tree/zip file)
 
     * Nagios (I assume you have this already running)
     * check_selenium (http://gitorious.org/nagios-community/plugins/trees/master/check_selenium)
